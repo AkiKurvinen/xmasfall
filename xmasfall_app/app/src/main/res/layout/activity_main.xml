@@ -7,12 +7,12 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/bgimageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="background image"
         android:scaleType="centerCrop"
-        android:src="@drawable/xmasbg"
+        android:src="@drawable/xmasbgleft"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.025" />
 
     <TextView
-        android:id="@+id/signupTextView"
+        android:id="@+id/signupHeaderTextView"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
@@ -55,7 +55,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/signupHeaderTextView" />
 
     <EditText
         android:id="@+id/signupPasswordEditText"
@@ -88,14 +88,16 @@
         android:layout_width="118dp"
         android:layout_height="56dp"
         android:layout_marginTop="32dp"
-        android:onClick="postSignup"
+        android:background="#1B51AC"
+        android:enabled="false"
+        android:onClick="postSignLogin"
         android:text="Sign up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupRePasswordEditText" />
 
     <TextView
-        android:id="@+id/passwordTextView3"
+        android:id="@+id/accountInfoTxt"
         android:layout_width="250dp"
         android:layout_height="39dp"
         android:layout_marginTop="50dp"
@@ -113,17 +115,18 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
+        android:onClick="toggleLoginSignup"
         android:text="Login here"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordTextView3" />
+        app:layout_constraintTop_toBottomOf="@+id/accountInfoTxt" />
 
     <TextView
         android:id="@+id/debug"
-        android:layout_width="429dp"
-        android:layout_height="29dp"
+        android:layout_width="432dp"
+        android:layout_height="56dp"
         android:text="debug"
         android:textColor="#DDCDCD"
-        tools:layout_editor_absoluteX="1dp" />
+        tools:layout_editor_absoluteX="-2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

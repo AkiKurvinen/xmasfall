@@ -28,7 +28,7 @@ function updateHiScore($id, $score){
         else{
 
         $arr = [];
-        $arr[0]=$row["score"];
+        $arr[0]=$row["hiscore"];
         $arr[1]=$row["xp"];
         return $arr;
         }
