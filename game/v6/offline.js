@@ -1,0 +1,32 @@
+﻿{
+	"version": 1634113303,
+	"fileList": [
+		"data.js",
+		"c2runtime.js",
+		"jquery-3.4.1.min.js",
+		"offlineClient.js",
+		"images/present-sheet0.png",
+		"images/sticks-sheet0.png",
+		"images/fallcoll-sheet0.png",
+		"images/xmasbg-sheet0.png",
+		"images/hpballs.png",
+		"images/starparticles.png",
+		"images/redfade.png",
+		"images/beginbutton-sheet0.png",
+		"images/infofade.png",
+		"images/info-sheet0.png",
+		"images/wall-sheet0.png",
+		"images/uiblack.png",
+		"images/savecompleted-sheet0.png",
+		"images/savecompleted-sheet1.png",
+		"images/savecompleted-sheet2.png",
+		"images/retrybutton-sheet0.png",
+		"images/continue-sheet0.png",
+		"icon-16.png",
+		"icon-32.png",
+		"icon-114.png",
+		"icon-128.png",
+		"icon-256.png",
+		"loading-logo.png"
+	]
+}

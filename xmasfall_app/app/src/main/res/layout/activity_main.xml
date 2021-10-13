@@ -48,7 +48,7 @@
         android:id="@+id/signupUsernameEditText"
         android:layout_width="324dp"
         android:layout_height="49dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Username..."
         android:inputType="textPersonName"
@@ -86,7 +86,7 @@
     <Button
         android:id="@+id/signupButton"
         android:layout_width="118dp"
-        android:layout_height="56dp"
+        android:layout_height="0dp"
         android:layout_marginTop="32dp"
         android:background="#1B51AC"
         android:enabled="false"
@@ -122,11 +122,13 @@
         app:layout_constraintTop_toBottomOf="@+id/accountInfoTxt" />
 
     <TextView
-        android:id="@+id/debug"
-        android:layout_width="432dp"
-        android:layout_height="56dp"
-        android:text="debug"
+        android:id="@+id/infoMessageTextView"
+        android:layout_width="379dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="24dp"
+        android:text="Info"
         android:textColor="#DDCDCD"
-        tools:layout_editor_absoluteX="-2dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupHeaderTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,8 +2,7 @@ package com.augergames.xmasfall;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Matrix;
-import android.media.Image;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -20,11 +19,18 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-
+    private int userID = 0;
+    private String userName = "";
+    private int userLVL = 0;
+    private int userXP = 0;
+    private String key = "";
     private RequestQueue queue;
     private boolean isLogin = false;
 
@@ -33,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView infoMessageTextView = findViewById(R.id.infoMessageTextView);
+        infoMessageTextView.setText("");
+
         TextView signupTextView = findViewById(R.id.signupHeaderTextView);
         EditText signupUsernameEditText = findViewById(R.id.signupUsernameEditText);
         EditText signupPasswordEditText = findViewById(R.id.signupPasswordEditText);
@@ -101,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void postSignup(View view, boolean isLogin){
-        Toast.makeText(this,"postSignup",Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this,"postSignup",Toast.LENGTH_SHORT).show();
 
         String postUrl ="https://augergames.com/xmasfall/api.php";
         String apikey = "a7e15036691751d80a4ac8d4f005b4b7";
@@ -128,12 +138,11 @@ public class MainActivity extends AppCompatActivity {
                     params.put("apikey", apikey);
                     params.put("username", signupUsernameEditText.getText().toString());
                     params.put("password", signupPasswordEditText.getText().toString());
-      if(isLogin==false){   params.put("rpassword", signupRePasswordEditText.getText().toString());}
-
+                if(isLogin==false){
+                    params.put("rpassword", signupRePasswordEditText.getText().toString());
+                }
                     return params;
                 }
-
-
             };
             queue.add(sr);
         }
@@ -188,8 +197,52 @@ public class MainActivity extends AppCompatActivity {
         gotoLoginButton.setText("Login here");
     }
     public void parseJSONandUpdateUI(String response){
-        TextView debug = findViewById(R.id.debug);
-        debug.setText(response);
+        TextView infoMessageTextView = findViewById(R.id.infoMessageTextView);
+        infoMessageTextView.setText(response);
+
+        try{
+            JSONObject rootObject = new JSONObject(response);
+
+
+            if (rootObject.has("error")) {
+                String err =rootObject.getString("error");
+                infoMessageTextView.setText(err);
+            }
+            else if(rootObject.has("id") && rootObject.has("uname")&& rootObject.has("xp")&& rootObject.has("lvl")){
+                userID = rootObject.getInt("id");
+                userName = rootObject.getString("uname");
+                userLVL = rootObject.getInt("lvl");
+                userXP = rootObject.getInt("xp");
+                key = rootObject.getString("keyhash");
+
+                if (userID != 0 && userName != ""){
+                    Toast.makeText(this,"Logged in as "+ userName,Toast.LENGTH_SHORT).show();
+                    infoMessageTextView.setText(userName+"");
+                    gotoUserActivity();
+                }
+                else{
+                    infoMessageTextView.setText("Login failed");
+                }
+            }
+
+
+
+        } catch (JSONException e) {
+            infoMessageTextView.append("Login failed");
+            e.printStackTrace();
+        }
 
     }
+    public void gotoUserActivity() {
+        Intent intent = new Intent(this, UserActivity.class);
+
+        intent.putExtra("userID", userID);
+        intent.putExtra("userName", userName);
+        intent.putExtra("userLVL", userLVL);
+        intent.putExtra("userXP", userXP);
+        intent.putExtra("key", key);
+
+        startActivity(intent);
+    }
+
 }
