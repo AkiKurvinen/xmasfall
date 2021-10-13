@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         EditText signupRePasswordEditText = findViewById(R.id.signupRePasswordEditText);
         Button signupButton = findViewById(R.id.signupButton);
 
-
+        gotoUserActivity();
         if(savedInstanceState == null){
             //it is the first time the fragment is being called
 
