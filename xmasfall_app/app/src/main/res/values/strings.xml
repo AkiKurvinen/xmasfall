@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">xmasfall</string>
+    <string name="score">Score</string>
+    <string name="username">Username</string>
+    <string name="lvl">LVL</string>
+    <string name="date">Date</string>
 </resources>

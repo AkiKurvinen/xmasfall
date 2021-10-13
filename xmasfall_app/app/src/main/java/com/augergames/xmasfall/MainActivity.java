@@ -28,11 +28,13 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     private int userID = 0;
     private String userName = "";
+    private int userHiscore = 0;
     private int userLVL = 0;
     private int userXP = 0;
     private String key = "";
     private RequestQueue queue;
     private boolean isLogin = false;
+    private String apikey = "a7e15036691751d80a4ac8d4f005b4b7";
 
 
     @Override
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         EditText signupRePasswordEditText = findViewById(R.id.signupRePasswordEditText);
         Button signupButton = findViewById(R.id.signupButton);
 
-        gotoUserActivity();
+      //  gotoUserActivity();
         if(savedInstanceState == null){
             //it is the first time the fragment is being called
 
@@ -114,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
       //  Toast.makeText(this,"postSignup",Toast.LENGTH_SHORT).show();
 
         String postUrl ="https://augergames.com/xmasfall/api.php";
-        String apikey = "a7e15036691751d80a4ac8d4f005b4b7";
+
 
         //
         TextView signupUsernameEditText = findViewById(R.id.signupUsernameEditText);
@@ -212,6 +214,7 @@ public class MainActivity extends AppCompatActivity {
                 userID = rootObject.getInt("id");
                 userName = rootObject.getString("uname");
                 userLVL = rootObject.getInt("lvl");
+                userHiscore = rootObject.getInt("hiscore");
                 userXP = rootObject.getInt("xp");
                 key = rootObject.getString("keyhash");
 
@@ -241,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("userLVL", userLVL);
         intent.putExtra("userXP", userXP);
         intent.putExtra("key", key);
+        intent.putExtra("hiscore", userHiscore);
 
         startActivity(intent);
     }

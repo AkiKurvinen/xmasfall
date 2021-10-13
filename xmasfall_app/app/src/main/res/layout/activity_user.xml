@@ -6,10 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".UserActivity">
 
+
     <ImageView
         android:id="@+id/xmasbguser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#E900193E"
         android:contentDescription="background image"
         android:scaleType="centerCrop"
         android:src="@drawable/xmasbguser"
@@ -20,13 +22,14 @@
         android:id="@+id/playbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="32dp"
         android:background="#1B51AC"
         android:onClick="gotoGame"
         android:text="Play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/scroll"
+        app:layout_constraintTop_toBottomOf="@+id/scroll" />
 
     <ImageView
         android:id="@+id/avatarImageView"
@@ -52,8 +55,8 @@
 
     <TextView
         android:id="@+id/lvlTextView"
-        android:layout_width="219dp"
-        android:layout_height="40dp"
+        android:layout_width="218dp"
+        android:layout_height="26dp"
         android:layout_marginStart="32dp"
         android:text="LVL 0"
         android:textColor="#B9BCBB"
@@ -64,8 +67,8 @@
 
     <TextView
         android:id="@+id/hiscoreTextView"
-        android:layout_width="219dp"
-        android:layout_height="40dp"
+        android:layout_width="218dp"
+        android:layout_height="30dp"
         android:layout_marginStart="32dp"
         android:text="Best score:"
         android:textColor="#B9BCBB"
@@ -75,50 +78,120 @@
         app:layout_constraintTop_toBottomOf="@+id/lvlTextView" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/buttonAll"
+        android:layout_width="95dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="64dp"
+        android:background="#030640"
+        android:enabled="false"
+        android:onClick="getScores"
+        android:text="All time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="Button"
-        app:layout_constraintStart_toEndOf="@+id/button3"
+        android:layout_marginTop="64dp"
+        android:background="#030640"
+        android:onClick="getYearScores"
+        android:text="Year"
+        app:layout_constraintStart_toEndOf="@+id/buttonAll"
         app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
 
-    <LinearLayout
-        android:id="@+id/scoreLinearLayout"
-        android:layout_width="388dp"
-        android:layout_height="204dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/playbutton"
+    <Button
+        android:id="@+id/buttonMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:background="#030640"
+        android:onClick="getMonthScores"
+        android:text="Month"
+        app:layout_constraintStart_toEndOf="@+id/buttonYear"
+        app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
+
+    <Button
+        android:id="@+id/buttonWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:background="#030640"
+        android:onClick="getWeekScores"
+        android:text="Week"
+        app:layout_constraintStart_toEndOf="@+id/buttonMonth"
+        app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="413dp"
+        android:layout_height="330dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3">
+        app:layout_constraintTop_toBottomOf="@+id/tableHeaderTV">
 
-        <TextView
-            android:id="@+id/textView2"
+        <LinearLayout
+            android:id="@+id/scoreLinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:background="#CC01002E"
+            android:orientation="horizontal"
+            android:paddingLeft="15sp"
+            android:paddingTop="15sp"
+            android:paddingEnd="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableHeaderTV">
+
+            <TextView
+                android:id="@+id/nthTabTV"
+                android:layout_width="16sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="#"
+                android:textColor="#A0A3A3" />
+
+            <TextView
+                android:id="@+id/scoreTabTV"
+                android:layout_width="46dp"
+                android:layout_height="match_parent"
+                android:text="score"
+                android:textColor="#02CAB9"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/userTabTV"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="username" />
+
+            <TextView
+                android:id="@+id/lvlTabTV"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="lvl"
+                android:textColor="#B9BCBB"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/dateTabTV"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="date" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tableHeaderTV"
+        android:layout_width="186dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="15sp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/xmasbguser"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAll" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
