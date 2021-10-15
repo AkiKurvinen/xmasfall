@@ -10,4 +10,4 @@ _by Aki Kurvinen, 19I224, 5G00EV05-3001_
 
 ## Images
 
-<img src="/screenshots/gameplay1.jpg" alt="Gameplay"/>
+![Image of Yaktocat](https://github.com/AkiKurvinen/xmasfall/blob/main/screenshots/gameplay1.JPG)

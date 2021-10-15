@@ -51,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
         EditText signupRePasswordEditText = findViewById(R.id.signupRePasswordEditText);
         Button signupButton = findViewById(R.id.signupButton);
 
+        //
+        signupUsernameEditText.setText("AugerGames");
+        signupPasswordEditText.setText("AugerGames");
+        signupButton.setEnabled(true);
+
+        //
       //  gotoUserActivity();
         if(savedInstanceState == null){
             //it is the first time the fragment is being called
