@@ -1,7 +1,7 @@
 # Android course project (Xmasfall-game)
 
 _by Aki Kurvinen, 19I224, 5G00EV05-3001_
-[Auger Games](https://augergames.com/)
+[Auger Games](https://augergames.com/){:target="\_blank"}
 
 ## Folders
 
