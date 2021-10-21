@@ -1,7 +1,6 @@
 # Android course project (Xmasfall-game)
 
 _by Aki Kurvinen, 19I224, 5G00EV05-3001_
-[Auger Games](https://augergames.com/){:target="\_blank"}
 
 ## Folders
 
@@ -15,7 +14,7 @@ _by Aki Kurvinen, 19I224, 5G00EV05-3001_
 ## Screenshots
 
 ![Gameplay]()
-<a href="url"><img src="https://github.com/AkiKurvinen/xmasfall/blob/main/screenshots/gameplay1.jpg" align="left" height="355" width="200" alt="Screenshot 1"></a>
+<a href="url"><img src="https://github.com/AkiKurvinen/xmasfall/blob/main/screenshots/gameplay5.jpg" align="left" height="355" width="200" alt="Screenshot 1"></a>
 <a href="url"><img src="https://github.com/AkiKurvinen/xmasfall/blob/main/screenshots/gameplay2.jpg" align="left" height="355" width="200" alt="Screenshot 2"></a>
 <a href="url"><img src="https://github.com/AkiKurvinen/xmasfall/blob/main/screenshots/gameplay3.jpg" align="left" height="355" width="200" alt="Screenshot 3"></a>
 <a href="url"><img src="https://github.com/AkiKurvinen/xmasfall/blob/main/screenshots/gameplay4.jpg" align="left" height="355" width="200" alt="Screenshot 4"></a>
