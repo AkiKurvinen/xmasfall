@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">XmasFall</string>
+    <string name="score">Pisteet</string>
+    <string name="username">Käyttäjänimi</string>
+    <string name="date">pvm</string>
+    <string name="login">Kirjaudu</string>
+    <string name="dont_have_account">Minulla ei ole vielä tiliä</string>
+    <string name="sign_up_now">Liity nyt</string>
+    <string name="sign_up">Jatka</string>
+    <string name="already_have_account">Onko sinulla jo tili?</string>
+    <string name="login_here">Kirjaudu tästä</string>
+    <string name="login_failed">Kirjautuminen epäonnistui</string>
+    <string name="xmasfall">XmasFall</string>
+    <string name="username_field">Käyttäjänimi...</string>
+    <string name="password_field">Salasana...</string>
+    <string name="confirm_password_field">Salasana uudelleen...</string>
+    <string name="play">Pelaa</string>
+    <string name="best_score">Paras tulos:</string>
+    <string name="all">Kaikki</string>
+    <string name="year">Vuosi</string>
+    <string name="month">Kuukausi</string>
+    <string name="week">Viikko</string>
+    <string name="day">Tänään</string>
+    <string name="score_in_board">pisteet</string>
+    <string name="username_in_board">käyttäjänimi</string>
+    <string name="date_in_board">pvm</string>
+    <string name="sign_up_header">Liity nyt</string>
+    <string name="logged_in_as_toast">"Kirjauduttu  sisään käyttäjällä "</string>
+    <string name="week_top_10">Viikon top 10</string>
+    <string name="day_top_10">Päivän top 10</string>
+    <string name="month_top_10">Kuukauden top 10</string>
+    <string name="year_top_10">Vuoden top 10</string>
+    <string name="all_time_top_10">Kaikkien aikojen top 10</string>
+    <string name="lvl">Taso</string>
+</resources>

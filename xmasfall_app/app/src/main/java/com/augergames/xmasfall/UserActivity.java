@@ -25,6 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -72,7 +73,7 @@ public class UserActivity extends AppCompatActivity {
 
             usernameTextView.setText(userName);
             lvlTextView.setText("LVL "+userLVL);
-            hiscoreTextView.setText("Best score: "+userHiscore);
+            hiscoreTextView.setText(MessageFormat.format("Best score: {0}", userHiscore));
         }
         queue = Volley.newRequestQueue(this);
 
@@ -92,7 +93,7 @@ public class UserActivity extends AppCompatActivity {
         }
 
 
-        Toast.makeText(this,"onRestoreInstanceState",Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this,"onRestoreInstanceState",Toast.LENGTH_SHORT).show();
     }
     public void buttonHandler(int btn){
         Button buttonAll = findViewById(R.id.buttonAll);
@@ -190,12 +191,12 @@ public class UserActivity extends AppCompatActivity {
                 userLVL = rootObject.getInt("lvl");
                 userHiscore = rootObject.getInt("hiscore");
                 userXP = rootObject.getInt("xp");
-                Toast.makeText(this,"Done",Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this,"Done",Toast.LENGTH_SHORT).show();
 
            TextView lvlTextView = findViewById(R.id.lvlTextView);
             TextView hiscoreTextView = findViewById(R.id.hiscoreTextView);
              lvlTextView.setText("LVL "+userLVL);
-              hiscoreTextView.setText("Best score: "+userHiscore);
+                hiscoreTextView.setText(MessageFormat.format("Best score: {0}", userHiscore));
             }
             else{
                 Toast.makeText(this,"No data to update",Toast.LENGTH_SHORT).show();
@@ -210,10 +211,10 @@ public class UserActivity extends AppCompatActivity {
 
     public void getScores(View view){
         buttonHandler(0);
-        String url= "https://augergames.com/xmasfall/api.php?scores=all&apikey="+apikey;
+        String url= "https://augergames.com/xmasfall/api.php?scores=all&limit=10&apikey="+apikey;
         JsonObjectRequest JSONRequest = new JsonObjectRequest(Request.Method.GET, url,null,
                 response -> {
-                    String period = "All time best";
+                    String period = getString(R.string.all_time_top_10);
                     updateScoreboard(response,period);
                 },   error -> {  Toast.makeText(this,error.toString(),Toast.LENGTH_SHORT).show();
         });     queue.add(JSONRequest);
@@ -221,10 +222,10 @@ public class UserActivity extends AppCompatActivity {
     public void getYearScores(View view){
 
         buttonHandler(1);
-        String url= "https://augergames.com/xmasfall/api.php?scores=year&apikey="+apikey;
+        String url= "https://augergames.com/xmasfall/api.php?scores=year&limit=10&apikey="+apikey;
         JsonObjectRequest JSONRequest = new JsonObjectRequest(Request.Method.GET, url,null,
                 response -> {
-                    String period = "Year's best";
+                    String period = getString(R.string.year_top_10);
                     updateScoreboard(response,period);
                 },   error -> {  Toast.makeText(this,error.toString(),Toast.LENGTH_SHORT).show();
         });     queue.add(JSONRequest);
@@ -232,32 +233,32 @@ public class UserActivity extends AppCompatActivity {
 
     public void getMonthScores(View view){
         buttonHandler(2);
-        String url= "https://augergames.com/xmasfall/api.php?scores=month&apikey="+apikey;
+        String url= "https://augergames.com/xmasfall/api.php?scores=month&limit=10&apikey="+apikey;
         JsonObjectRequest JSONRequest = new JsonObjectRequest(Request.Method.GET, url,null,
                 response -> {
-                    String period = "Month's best";
+                    String period = getString(R.string.month_top_10);
                     updateScoreboard(response,period);
                 },   error -> {  Toast.makeText(this,error.toString(),Toast.LENGTH_SHORT).show();
         });     queue.add(JSONRequest);
     }
     public void getWeekScores(View view){
         buttonHandler(3);
-        String url= "https://augergames.com/xmasfall/api.php?scores=week&apikey="+apikey;
+        String url= "https://augergames.com/xmasfall/api.php?scores=week&limit=10&apikey="+apikey;
         JsonObjectRequest JSONRequest = new JsonObjectRequest(Request.Method.GET, url,null,
                 response -> {
 
-            String period = "Week's best";
+            String period = getString(R.string.week_top_10);
                     updateScoreboard(response,period );
                 },   error -> {  Toast.makeText(this,error.toString(),Toast.LENGTH_SHORT).show();
         });     queue.add(JSONRequest);
     }
     public void getDayScores(View view){
         buttonHandler(4);
-        String url= "https://augergames.com/xmasfall/api.php?scores=day&apikey="+apikey;
+        String url= "https://augergames.com/xmasfall/api.php?scores=day&limit=10&apikey="+apikey;
         JsonObjectRequest JSONRequest = new JsonObjectRequest(Request.Method.GET, url,null,
                 response -> {
 
-                    String period = "Day's best";
+                    String period = getString(R.string.day_top_10);
                     updateScoreboard(response,period );
                 },   error -> {  Toast.makeText(this,error.toString(),Toast.LENGTH_SHORT).show();
         });     queue.add(JSONRequest);
@@ -299,7 +300,7 @@ public class UserActivity extends AppCompatActivity {
                 String outputDateStr = outputFormat.format(newDate);
                 //
 
-                nthItem.append("\n").append(i);
+                nthItem.append("\n").append(i+1);
                 scoresItem.append("\n").append(score);
                 userItem.append("\n").append(uname);
                 lvlItem.append("\n").append(lvl);

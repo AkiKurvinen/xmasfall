@@ -1,7 +1,37 @@
 <resources>
-    <string name="app_name">xmasfall</string>
+    <string name="app_name">XmasFall</string>
     <string name="score">Score</string>
     <string name="username">Username</string>
     <string name="lvl">LVL</string>
     <string name="date">Date</string>
+    <string name="login">Login</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="sign_up_now">Sign up now</string>
+    <string name="sign_up">Sign up</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="login_here">Login here</string>
+    <string name="login_failed">Login failed</string>
+    <string name="background_image" translatable="false">background image</string>
+    <string name="xmasfall">XmasFall</string>
+    <string name="username_field">Username...</string>
+    <string name="password_field">Password...</string>
+    <string name="confirm_password_field">Confirm Password...</string>
+    <string name="info" translatable="false">Info</string>
+    <string name="play">Play</string>
+    <string name="best_score">Best score:</string>
+    <string name="all">All</string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="week">Week</string>
+    <string name="day">Day</string>
+    <string name="score_in_board">score</string>
+    <string name="username_in_board">username</string>
+    <string name="date_in_board">date</string>
+    <string name="sign_up_header">Sign up</string>
+    <string name="logged_in_as_toast">"Logged in as "</string>
+    <string name="week_top_10">Week\'s top 10</string>
+    <string name="day_top_10">Day\'s top 10</string>
+    <string name="month_top_10">Month\'s top 10</string>
+    <string name="year_top_10">Year\'s top 10</string>
+    <string name="all_time_top_10">All time top 10</string>
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenOrientation="portrait"
     tools:context=".UserActivity">
 
 
@@ -12,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#E900193E"
-        android:contentDescription="background image"
+        android:contentDescription="@string/background_image"
         android:scaleType="centerCrop"
         android:src="@drawable/xmasbguser"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,13 +23,13 @@
         android:id="@+id/playbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="64dp"
         android:background="#1B51AC"
         android:onClick="gotoGame"
-        android:text="Play"
+        android:text="@string/play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/scroll"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scroll" />
 
     <ImageView
@@ -47,7 +48,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="Username"
+        android:text="@string/username"
         android:textColor="#02CAB9"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
@@ -70,7 +71,7 @@
         android:layout_width="218dp"
         android:layout_height="30dp"
         android:layout_marginStart="32dp"
-        android:text="Best score:"
+        android:text="@string/best_score"
         android:textColor="#B9BCBB"
         android:textSize="16sp"
         android:textStyle="italic"
@@ -85,7 +86,7 @@
         android:background="#030640"
         android:enabled="false"
         android:onClick="getScores"
-        android:text="All"
+        android:text="@string/all"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
 
@@ -96,7 +97,7 @@
         android:layout_marginTop="64dp"
         android:background="#030640"
         android:onClick="getYearScores"
-        android:text="Year"
+        android:text="@string/year"
         app:layout_constraintStart_toEndOf="@+id/buttonAll"
         app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
 
@@ -107,7 +108,7 @@
         android:layout_marginTop="64dp"
         android:background="#030640"
         android:onClick="getMonthScores"
-        android:text="Month"
+        android:text="@string/month"
         app:layout_constraintStart_toEndOf="@+id/buttonYear"
         app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
 
@@ -118,7 +119,7 @@
         android:layout_marginTop="64dp"
         android:background="#030640"
         android:onClick="getWeekScores"
-        android:text="Week"
+        android:text="@string/week"
         app:layout_constraintStart_toEndOf="@+id/buttonMonth"
         app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
 
@@ -129,7 +130,7 @@
         android:layout_marginTop="64dp"
         android:background="#030640"
         android:onClick="getDayScores"
-        android:text="Day"
+        android:text="@string/day"
         app:layout_constraintStart_toEndOf="@+id/buttonWeek"
         app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
 
@@ -137,6 +138,7 @@
         android:id="@+id/scroll"
         android:layout_width="413dp"
         android:layout_height="330dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableHeaderTV">
@@ -144,10 +146,10 @@
         <LinearLayout
             android:id="@+id/scoreLinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="#CC01002E"
             android:orientation="horizontal"
-            android:paddingLeft="15sp"
+            android:paddingStart="15sp"
             android:paddingTop="15sp"
             android:paddingEnd="15sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -156,32 +158,31 @@
 
             <TextView
                 android:id="@+id/nthTabTV"
-                android:layout_width="16sp"
+                android:layout_width="42dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="#"
+                android:textAlignment="center"
                 android:textColor="#A0A3A3" />
 
             <TextView
                 android:id="@+id/scoreTabTV"
-                android:layout_width="46dp"
-                android:layout_height="match_parent"
-                android:text="score"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:text="@string/score_in_board"
                 android:textColor="#02CAB9"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/userTabTV"
-                android:layout_width="126dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="username" />
+                android:text="@string/username_in_board" />
 
             <TextView
                 android:id="@+id/lvlTabTV"
                 android:layout_width="35dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:text="lvl"
                 android:textColor="#B9BCBB"
                 android:textStyle="italic" />
@@ -189,9 +190,8 @@
             <TextView
                 android:id="@+id/dateTabTV"
                 android:layout_width="119dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="date" />
+                android:layout_height="wrap_content"
+                android:text="@string/date_in_board" />
         </LinearLayout>
     </ScrollView>
 
@@ -201,7 +201,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="16dp"
         android:paddingLeft="15sp"
-        android:text="TextView"
+        android:text="@string/info"
         app:layout_constraintStart_toStartOf="@+id/xmasbguser"
         app:layout_constraintTop_toBottomOf="@+id/buttonAll" />
 

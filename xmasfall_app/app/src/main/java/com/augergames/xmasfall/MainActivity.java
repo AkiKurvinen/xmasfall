@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private boolean isLogin = false;
     private String apikey = "a7e15036691751d80a4ac8d4f005b4b7";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,23 +50,12 @@ public class MainActivity extends AppCompatActivity {
         EditText signupRePasswordEditText = findViewById(R.id.signupRePasswordEditText);
         Button signupButton = findViewById(R.id.signupButton);
 
-        //
-        signupUsernameEditText.setText("AugerGames");
-        signupPasswordEditText.setText("AugerGames");
-        signupButton.setEnabled(true);
-
-        //
-      //  gotoUserActivity();
-        if(savedInstanceState == null){
-            //it is the first time the fragment is being called
-
-        }else{
-            //not the first time so we will check SavedInstanceState bundle
+        if(savedInstanceState != null){
             signupUsernameEditText.setText(savedInstanceState.getString("signupUsernameEditText"));
             signupPasswordEditText.setText(savedInstanceState.getString("signupPasswordEditText"));
             signupRePasswordEditText.setText(savedInstanceState.getString("signupRePasswordEditText"));
-        }
 
+        }
         signupPasswordEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) { }
@@ -111,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void postSignLogin(View view){
-        if (isLogin == false) {
+        if (!isLogin) {
             postSignup(view, isLogin);
         }
         else{
@@ -119,12 +107,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void postSignup(View view, boolean isLogin){
-      //  Toast.makeText(this,"postSignup",Toast.LENGTH_SHORT).show();
 
         String postUrl ="https://augergames.com/xmasfall/api.php";
 
-
-        //
         TextView signupUsernameEditText = findViewById(R.id.signupUsernameEditText);
         TextView signupPasswordEditText = findViewById(R.id.signupPasswordEditText);
         TextView signupRePasswordEditText = findViewById(R.id.signupRePasswordEditText);
@@ -146,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                     params.put("apikey", apikey);
                     params.put("username", signupUsernameEditText.getText().toString());
                     params.put("password", signupPasswordEditText.getText().toString());
-                if(isLogin==false){
+                if(!isLogin){
                     params.put("rpassword", signupRePasswordEditText.getText().toString());
                 }
                     return params;
@@ -159,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView bgimageView = findViewById(R.id.bgimageView);
 
-        if (isLogin == false) {
+        if (!isLogin) {
             bgimageView.setImageResource(R.drawable.xmasbgright);
             gotoLogin(view);
         }
@@ -171,38 +156,38 @@ public class MainActivity extends AppCompatActivity {
     public void gotoLogin(View view){
         isLogin = true;
         TextView signupTextView = findViewById(R.id.signupHeaderTextView);
-        signupTextView.setText("Login");
+        signupTextView.setText(R.string.login);
 
 
         TextView signupRePasswordEditText = findViewById(R.id.signupRePasswordEditText);
         signupRePasswordEditText.setVisibility(View.INVISIBLE);
 
         TextView accountInfoTxt = findViewById(R.id.accountInfoTxt);
-        accountInfoTxt.setText("Don't have an account?");
+        accountInfoTxt.setText(R.string.dont_have_account);
 
         Button signupButton = findViewById(R.id.signupButton);
-        signupButton.setText("Login");
+        signupButton.setText(R.string.login);
 
         Button gotoLoginButton = findViewById(R.id.gotoLoginButton);
-        gotoLoginButton.setText("Sign up now");
+        gotoLoginButton.setText(R.string.sign_up_now);
     }
     public void gotoSignup(View view){
         isLogin = false;
         TextView signupTextView = findViewById(R.id.signupHeaderTextView);
-        signupTextView.setText("Sign up");
+        signupTextView.setText(R.string.sign_up_header);
 
 
         TextView signupRePasswordEditText = findViewById(R.id.signupRePasswordEditText);
         signupRePasswordEditText.setVisibility(View.VISIBLE);
 
         TextView accountInfoTxt = findViewById(R.id.accountInfoTxt);
-        accountInfoTxt.setText("Already have an account?");
+        accountInfoTxt.setText(R.string.already_have_account);
 
         Button signupButton = findViewById(R.id.signupButton);
-        signupButton.setText("Sign up");
+        signupButton.setText(R.string.sign_up);
 
         Button gotoLoginButton = findViewById(R.id.gotoLoginButton);
-        gotoLoginButton.setText("Login here");
+        gotoLoginButton.setText(R.string.login_here);
     }
     public void parseJSONandUpdateUI(String response){
         TextView infoMessageTextView = findViewById(R.id.infoMessageTextView);
@@ -225,16 +210,14 @@ public class MainActivity extends AppCompatActivity {
                 key = rootObject.getString("keyhash");
 
                 if (userID != 0 && userName != ""){
-                    Toast.makeText(this,"Logged in as "+ userName,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,getString(R.string.logged_in_as_toast)+ userName,Toast.LENGTH_SHORT).show();
                     infoMessageTextView.setText(userName+"");
                     gotoUserActivity();
                 }
                 else{
-                    infoMessageTextView.setText("Login failed");
+                    infoMessageTextView.setText(R.string.login_failed);
                 }
             }
-
-
 
         } catch (JSONException e) {
             infoMessageTextView.append("Login failed");
