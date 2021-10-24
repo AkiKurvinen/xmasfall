@@ -122,6 +122,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountInfoTxt" />
 
+    <Button
+        android:id="@+id/playAsGuestButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:onClick="openDialog"
+        android:text="@string/play_as_guest"
+        android:textColor="#00BCD4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gotoLoginButton" />
+
     <TextView
         android:id="@+id/infoMessageTextView"
         android:layout_width="379dp"

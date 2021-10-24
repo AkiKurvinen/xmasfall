@@ -7,8 +7,10 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,9 +35,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.android.volley.VolleyLog.TAG;
+
 
 public class UserActivity extends AppCompatActivity {
     private int userID = 0;
+    private boolean isGuest = true;
     private String userName = "Guest";
     private int userHiscore = 0;
     private int userLVL = 0;
@@ -43,7 +49,7 @@ public class UserActivity extends AppCompatActivity {
     private String userURL = "https://augergames.com/xmasfall/autologin.php";
     private RequestQueue queue;
     private String apikey = "a7e15036691751d80a4ac8d4f005b4b7";
-    private boolean needSync = false;
+    private boolean needSync = true;
 
 
     @Override
@@ -77,10 +83,11 @@ public class UserActivity extends AppCompatActivity {
         }
         queue = Volley.newRequestQueue(this);
 
+        if(userID != 0){
+            isGuest = false;
+        }
 
         buttonAll.performClick();
-
-
 
     }
 
@@ -88,12 +95,10 @@ public class UserActivity extends AppCompatActivity {
     public void onResume( ){
         super.onResume();
 
-        if(needSync){
+        if(needSync && !isGuest){
             syncUserData();
         }
 
-
-      //  Toast.makeText(this,"onRestoreInstanceState",Toast.LENGTH_SHORT).show();
     }
     public void buttonHandler(int btn){
         Button buttonAll = findViewById(R.id.buttonAll);
@@ -148,6 +153,21 @@ public class UserActivity extends AppCompatActivity {
     public void syncUserData() {
         needSync = false;
 
+        String imgurl= "https://augergames.com/xmasfall/ranks/rank0.png";
+
+        if(userLVL>0 && userLVL<6){
+            imgurl= "https://augergames.com/xmasfall/ranks/rank"+userLVL+".png";
+        }
+        else if(userLVL>5){
+            imgurl= "https://augergames.com/xmasfall/ranks/rank5.png";
+        }
+
+        ImageView avatarImageView = findViewById(R.id.avatarImageView);
+        Picasso.get()
+                .load(imgurl)
+                .error(R.drawable.rankzero)
+                .into(avatarImageView);
+
         String postUrl ="https://augergames.com/xmasfall/api.php";
 
         StringRequest sr = new StringRequest(Request.Method.POST,postUrl, new Response.Listener<String>() {
@@ -175,7 +195,6 @@ public class UserActivity extends AppCompatActivity {
 
     }
     public void parseJSONandUpdateUI(String response){
-       // Toast.makeText(this,"Here",Toast.LENGTH_SHORT).show();
 
 
         try{
@@ -317,7 +336,7 @@ public class UserActivity extends AppCompatActivity {
         }
         catch(JSONException | ParseException e){
 
-            Toast.makeText(this,e.toString(),Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this,e.toString(),Toast.LENGTH_SHORT).show();
             // Toast.makeText(this,response.toString(),Toast.LENGTH_SHORT).show();
 
         }

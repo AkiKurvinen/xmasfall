@@ -32,21 +32,30 @@ if (isset($_GET['key'])){
                 $truelvl = lvlcalc($row['xp']);
                 $_SESSION['lvl'] = $truelvl;
 
-            if(file_exists('game') && $_SESSION['id'] != '') {
+            if(file_exists('android') && $_SESSION['id'] != '') {
 
-                $files = scandir('game', SCANDIR_SORT_DESCENDING);
+                $files = scandir('android', SCANDIR_SORT_DESCENDING);
                 $newest_file = $files[0];
-                header("location: game/".$newest_file);
+                header("location: android/".$newest_file);
             }
             else{
-                echo 'Failed to load game';
+                echo 'Failed to load game <a href="index.php">Back to Login</a>';
             }
         }
 
         else{
 
-            $arr = array('error' => 'Wrong or expired key');
-            echo json_encode($arr);
+            if(is_null($key)){
+                $files = scandir('android', SCANDIR_SORT_DESCENDING);
+                $newest_file = $files[0];
+                header("location: android/".$newest_file);
+            }
+            else{
+                 header("location: http://augergames.com/xmasfall/exit_browser.php");
+
+            }
+
+
         }
     }
 

@@ -34,4 +34,7 @@
     <string name="month_top_10">Month\'s top 10</string>
     <string name="year_top_10">Year\'s top 10</string>
     <string name="all_time_top_10">All time top 10</string>
+    <string name="play_as_guest">Play as guest</string>
+    <string name="dialog_title">Game progress will not be saved!</string>
+    <string name="cancel">Cancel</string>
 </resources>

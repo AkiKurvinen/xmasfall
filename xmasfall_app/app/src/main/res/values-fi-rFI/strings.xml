@@ -26,11 +26,14 @@
     <string name="username_in_board">käyttäjänimi</string>
     <string name="date_in_board">pvm</string>
     <string name="sign_up_header">Liity nyt</string>
-    <string name="logged_in_as_toast">"Kirjauduttu  sisään käyttäjällä "</string>
+    <string name="logged_in_as_toast">"Kirjauduttu sisään käyttäjällä "</string>
     <string name="week_top_10">Viikon top 10</string>
     <string name="day_top_10">Päivän top 10</string>
     <string name="month_top_10">Kuukauden top 10</string>
     <string name="year_top_10">Vuoden top 10</string>
     <string name="all_time_top_10">Kaikkien aikojen top 10</string>
     <string name="lvl">Taso</string>
+    <string name="play_as_guest">Pelaa kirjautumatta</string>
+    <string name="dialog_title">Pelin edistymistä ei tallenneta!</string>
+    <string name="cancel">Peruuta</string>
 </resources>
