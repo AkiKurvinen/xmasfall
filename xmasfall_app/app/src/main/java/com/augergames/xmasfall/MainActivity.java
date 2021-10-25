@@ -255,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("userName", "Guest");
                     intent.putExtra("userLVL", 0);
                     intent.putExtra("userXP", 0);
-                    intent.putExtra("key", key);
+                    intent.putExtra("key", "");
                     intent.putExtra("hiscore", 0);
                     startActivity(intent);
                 }

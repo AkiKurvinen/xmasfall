@@ -4,12 +4,12 @@ _by Aki Kurvinen, 19I224, 5G00EV05-3001_
 
 ## Folders
 
-- xmasfall_app (Android Studio project)
-- game (Exported Construct game)
-- api (API for application)
-  -- api.php [JSON API for Android application]
-  -- c2.php [Non JSON API for game & AJAX]
-  -- autologin.php [Login with temporary key]
+* xmasfall_app (Android Studio project)
+* game (Exported Construct game)
+* api (API for application)
+  * api.php [JSON API for Android application]
+  * c2.php [Non JSON API for game & AJAX]
+  * autologin.php [Login with temporary key]
 
 ## Screenshots
 

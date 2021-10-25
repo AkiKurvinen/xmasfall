@@ -66,8 +66,6 @@ public class UserActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 
-
-
         if (extras != null) {
             userID = intent.getIntExtra("userID", 0);
             userName = intent.getStringExtra("userName");
@@ -75,7 +73,7 @@ public class UserActivity extends AppCompatActivity {
             userXP = intent.getIntExtra("userXP", 0);
             key = intent.getStringExtra("key");
             userHiscore = intent.getIntExtra("hiscore",0);
-            userURL= userURL+"?key="+key;
+            userURL= userURL+"?key="+key+"&uid="+userID;
 
             usernameTextView.setText(userName);
             lvlTextView.setText("LVL "+userLVL);
