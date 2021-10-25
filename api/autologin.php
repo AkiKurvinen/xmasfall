@@ -64,7 +64,6 @@ if (isset($_GET['key']) && isset($_GET['uid'])){
 
            header("location: http://augergames.com/xmasfall/exit_browser.php");
 
-
         }
     }
 
