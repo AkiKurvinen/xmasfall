@@ -1,15 +1,15 @@
-# Android course project (Xmasfall-game)
+# Android course project (XmasFall-game)
 
-_by Aki Kurvinen
+Try it out online at [Auger games](https://augergames.com/xmasfall).
 
 ## Folders
 
-* xmasfall_app (Android Studio project)
-* game (Exported Construct game)
-* api (API for application)
-  * api.php (JSON API for Android application)
-  * c2.php (Non JSON API for game & AJAX)
-  * autologin.php (Login with temporary key)
+- xmasfall_app (Android Studio project)
+- game (Exported Construct game)
+- api (API for application)
+  - api.php (JSON API for Android application)
+  - c2.php (Non JSON API for game & AJAX)
+  - autologin.php (Login with temporary key)
 
 ## Screenshots
 
