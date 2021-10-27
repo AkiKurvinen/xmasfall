@@ -16,9 +16,6 @@ if (isset($_GET['key']) && isset($_GET['uid'])){
 
     if($keyh==""){
 
-
-
-
         $files = scandir('android', SCANDIR_SORT_DESCENDING);
         $newest_file = $files[0];
         header("location: android/".$newest_file);
