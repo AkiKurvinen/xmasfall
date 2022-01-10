@@ -1,6 +1,6 @@
 # Android course project (XmasFall-game)
 
-Try it out online at [Auger games](https://augergames.com/xmasfall).
+Try it out online at [Auger Games](https://augergames.com/xmasfall).
 
 ## Folders
 
@@ -10,6 +10,7 @@ Try it out online at [Auger games](https://augergames.com/xmasfall).
   - api.php (JSON API for Android application)
   - c2.php (Non JSON API for game & AJAX)
   - autologin.php (Login with temporary key)
+  - - live (Real time score monitoring)
 
 ## Screenshots
 
